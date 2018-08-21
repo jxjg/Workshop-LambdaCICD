@@ -32,7 +32,7 @@ The Lambda Funcitons 101 workshop or run this CloudFormation Template: <**Link H
 
 
 ## Getting Started
-[![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://s3-us-west-2.amazonaws.com/aws-cfn-quickstarts/cloudformation-template/aws-cfn-lambda-node-pipeline.yml)
+[![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://s3.amazonaws.com/ccoe-workshops/aws-cfn-lambda-node-pipeline.yml)
 
 ## Coming soon
 * **Workshop:** Lambda Functions 201 (Triggering Events)
