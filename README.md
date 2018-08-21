@@ -25,7 +25,7 @@ The Lambda Funcitons 101 workshop or run this CloudFormation Template: <**Link H
 ## Workshop Overview
 * What is CloudFormation?
 * Review of the sections of the CloudFormation Template that we will run
-* Create a GitHub repo
+* Create a GitHub repo and get a personal access token
 * Execute the CloudFormation template using the _Launch Stack_ button below to deploy our Lambda Function from the Lambda 101 Workshop
 * Add Another record to DynamoDB
 * Alter the code in GitHub and demonstrate the pipeline automation
