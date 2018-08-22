@@ -161,7 +161,7 @@ Resources:
           Principal: {Service: [lambda.amazonaws.com]}
           Action: ['sts:AssumeRole']
       Policies:
-      - PolicyName: !Sub '${AWS::StackName}-LAMBDA-POLICY-${pEnv}'
+      - PolicyName: !Sub '${AWS::StackName}-LAMBDA-LOGGING-POLICY-${pEnv}'
         PolicyDocument:
           Version: '2012-10-17'
           Statement:
@@ -172,6 +172,9 @@ Resources:
                 - 'logs:PutLogEvents'
                 - 'logs:DescribeLogStreams'
               Resource: '*'
+      - PolicyName: !Sub '${AWS::StackName}-LAMBDA-DYNAMO-POLICY-${pEnv}'    
+        PolicyDocument:
+          Version: '2012-10-17'
           Statement:
             - Effect: Allow
               Action:
