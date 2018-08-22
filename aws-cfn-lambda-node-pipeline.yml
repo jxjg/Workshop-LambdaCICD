@@ -378,6 +378,7 @@ Resources:
       Environment:
         Variables:
           ENV: !Ref pEnv
+          FunctionName: !Ref FunctionName
       # Tag all the things (from parameter values)
       Tags:
         - Key: CFNOwner
