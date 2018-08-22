@@ -173,7 +173,6 @@ Resources:
                 - 'logs:DescribeLogStreams'
               Resource: '*'
           Statement:
-            - Sid: "Dynamo Full Access"
             - Effect: Allow
               Action:
                 - 'dynamodb:*'
