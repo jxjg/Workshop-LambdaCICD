@@ -9,6 +9,52 @@ AWSTemplateFormatVersion: 2010-09-09
 
 # Version 0.30 
 # Revision Date: 8/21/2018
+Metadata: 
+  AWS::CloudFormation::Interface: 
+    ParameterGroups: 
+      - 
+        Label:
+          default: "GitHub Configuration"
+        Parameters:
+          - pGitHubAccount
+          - pGitHubRepo
+          - pGitHubRepoBranch
+          - pGitHubToken
+      -
+        Label:
+          default: "Pipeline Configuration"
+        Parameters:
+          - pPipelineBucketName
+          - pDynamoDbTableArn
+      -
+        Label:
+          default: "Tags"
+        Parameters:
+          - pApplicationName
+          - pEnv
+          - pCFNOwnerTag
+    
+    ParameterLabels:
+      pGitHubAccount:
+        default: "GitHub Account"
+      pGitHubRepo:
+        default: "Source Repository"
+      pGitHubRepoBranch:
+        default: "Repo Branch"
+      pGitHubToken:
+        default: "GitHub Access Token"
+      pPipelineBucketName:
+        default: "S3 Artifact Bucket Name"
+      pDynamoDbTableArn:
+        default: "DynamoDB Table ARN"
+      pApplicationName:
+        default: "Application Name"
+      pEnv:
+        default: "Environment"
+      pCFNOwnerTag:
+        default: "CorpID of Owner"
+
+
 
 # Paramaters that the user will be prompted for when running this template
 # Note that the values from these parameters will be used and referenced
@@ -54,6 +100,11 @@ Parameters:
   pApplicationName:
     Type: 'String'
     Description: "The name of the application"
+  # DynamoDB Table name - from Lambda101 Workshop
+  pDynamoDbTableArn:
+    Type: 'String'
+    Description: "DynamoDB Table ARN (from Lambda101 Workshop)"
+    Default: "arn:aws:dynamodb:us-east-1:123456789101:table/user-info-mehs"
 
 Resources:
 # The following sections define the various AWS resources,
@@ -179,7 +230,7 @@ Resources:
             - Effect: Allow
               Action:
                 - 'dynamodb:*'
-              Resource: 'arn:aws:dynamodb:us-east-1:912436859212:table/user-info-mehs'    
+              Resource: !Ref pDynamoDbTableArn    
 
   # AWS S3 Bucket configuration (must be globally unique and not exist)
   # This bucket will be used to hold the pipeline artifacts (source, build)
