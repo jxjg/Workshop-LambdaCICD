@@ -21,28 +21,28 @@ Parameters:
     Description: "Enter the GitHub Access Token"
     NoEcho: true
   # GitHub account or organization that owns the target repository
-    pGitHubAccount:
+  pGitHubAccount:
     Type: 'String'
     Description: "Enter the GitHub Account Name"
   # Specific GitHub target repository  - do not include .git extension
-    pGitHubRepo:
+  pGitHubRepo:
     Type: 'String'
     Description: "Enter the GitHub Repo Name"
   # Specify the branch (master, dev, feature, etc) within repo
-    pGitHubRepoBranch:
+  pGitHubRepoBranch:
     Type: 'String'
     Default: 'dev'
     Description: "Enter the Branch (dev, master, feature, etc) you wish to pull from the GitHub repo"
   # Specify S3 bucket to contain pipeline / build artifacts 
-    pPipelineBucketName:
+  pPipelineBucketName:
     Type: 'String'
     Description: "The name of the S3 bucket that will contain the pipeline artifacts"
   # CorpID of the person who 'owns' the stack and associated resources
-    pCFNOwnerTag:
+  pCFNOwnerTag:
     Type: 'String'
     Description: "Enter CorpID of the owner of this stack (for tagging of resources)"
   # Environment specification (appended to tags, etc)
-    pEnv:
+  pEnv:
     Type: 'String'
     Description: "The environment"
     AllowedValues:
@@ -51,7 +51,7 @@ Parameters:
       - 'TEST'
       - 'DEV'
   # Application Name (used in stack / resource names, tags)
-    pApplicationName:
+  pApplicationName:
     Type: 'String'
     Description: "The name of the application"
 
@@ -161,7 +161,7 @@ Resources:
           Principal: {Service: [lambda.amazonaws.com]}
           Action: ['sts:AssumeRole']
       Policies:
-      - PolicyName: !Sub '${AWS::StackName}-LAMBDA-POLICY-${pEnv}'
+      - PolicyName: !Sub '${AWS::StackName}-LAMBDA-LOGGING-POLICY-${pEnv}'
         PolicyDocument:
           Version: '2012-10-17'
           Statement:
@@ -172,6 +172,14 @@ Resources:
                 - 'logs:PutLogEvents'
                 - 'logs:DescribeLogStreams'
               Resource: '*'
+      - PolicyName: !Sub '${AWS::StackName}-LAMBDA-DYNAMO-POLICY-${pEnv}'    
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - 'dynamodb:*'
+              Resource: 'arn:aws:dynamodb:us-east-1:912436859212:table/user-info-mehs'    
 
   # AWS S3 Bucket configuration (must be globally unique and not exist)
   # This bucket will be used to hold the pipeline artifacts (source, build)
