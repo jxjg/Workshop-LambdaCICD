@@ -30,6 +30,8 @@ The Lambda Funcitons 101 workshop or run this CloudFormation Template: <**Link H
 * Add Another record to DynamoDB
 * Alter the code in GitHub and demonstrate the pipeline automation
 
+## Step-by-Step Instructions
+Click [here](WorkshopForLambdaCICD.pdf) for the pdf file of step-by-step instructions
 
 ## Getting Started
 [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://s3.amazonaws.com/ccoe-workshops/aws-cfn-lambda-node-pipeline.yml)
