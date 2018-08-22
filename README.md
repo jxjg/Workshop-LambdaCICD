@@ -24,7 +24,7 @@ The Lambda Funcitons 101 workshop or run this CloudFormation Template: <**Link C
 ![alt text](./Workshop-Lambda-CICD.png "Workshop Diagram")
 
 ## How you will build it
-**Section 1: Setup GitHub for use by Cloud Formation
+**Section 1: Setup GitHub for use by Cloud Formation**
 * Create a personal access token.  
 * Fork the source repo to your account
 
