@@ -1,5 +1,59 @@
 AWSTemplateFormatVersion: 2010-09-09
 
+# Simple CI/CD Pipeline using native AWS services,
+# integrated with github source code repository
+
+# Authors:  Ryan Russell
+#           Michael Hansen
+#           Billy Glenn
+
+# Version 0.30 
+# Revision Date: 8/21/2018
+
+# Paramaters that the user will be prompted for when running this template
+# Note that the values from these parameters will be used and referenced
+#  by the resources below
+
+Parameters:
+  # GitHub Personal Access Token for accessing the target repository
+  pGitHubToken:
+    Type: 'String'
+    Description: "Enter the GitHub Access Token"
+    NoEcho: true
+  # GitHub account or organization that owns the target repository
+    pGitHubAccount:
+    Type: 'String'
+    Description: "Enter the GitHub Account Name"
+  # Specific GitHub target repository  - do not include .git extension
+    pGitHubRepo:
+    Type: 'String'
+    Description: "Enter the GitHub Repo Name"
+  # Specify the branch (master, dev, feature, etc) within repo
+    pGitHubRepoBranch:
+    Type: 'String'
+    Default: 'dev'
+    Description: "Enter the Branch (dev, master, feature, etc) you wish to pull from the GitHub repo"
+  # Specify S3 bucket to contain pipeline / build artifacts 
+    pPipelineBucketName:
+    Type: 'String'
+    Description: "The name of the S3 bucket that will contain the pipeline artifacts"
+  # CorpID of the person who 'owns' the stack and associated resources
+    pCFNOwnerTag:
+    Type: 'String'
+    Description: "Enter CorpID of the owner of this stack (for tagging of resources)"
+  # Environment specification (appended to tags, etc)
+    pEnv:
+    Type: 'String'
+    Description: "The environment"
+    AllowedValues:
+      - 'PROD'
+      - 'QA'
+      - 'TEST'
+  # Application Name (used in stack / resource names, tags)
+    pApplicationName:
+    Type: 'String'
+    Description: "The name of the application"
+
 Resources:
 
   # AWS S3 Bucket configuration
