@@ -11,24 +11,40 @@ this workshop you will explore the sections of the CloudFormation template, iden
 deploy your pipeline automation.
 
 Note: This workshop will build on the Lambda 101 Workshop Artifacts.  If you do not have these Artifacts, please redo
-The Lambda Funcitons 101 workshop or run this CloudFormation Template: <**Link Here**>.
+The Lambda Funcitons 101 workshop or run this CloudFormation Template: <**Link Coming soon**>.
 
 ## Prerequisites
 * Pre-read(or watch): [CloudFormation Overview Video Podcast](https://youtu.be/dtkZQfuaRyI)
 * AWS account for use in the workshop (all resources should be free tier)
 * A GitHub account that you can create a temporary repository for this exercise
+* Workshop: Lambda Functions 101
 
 ## What you are building
 
 ![alt text](./Workshop-Lambda-CICD.png "Workshop Diagram")
 
-## Workshop Overview
-* What is CloudFormation?
-* Review of the sections of the CloudFormation Template that we will run
-* Create a GitHub repo and get a personal access token
-* Execute the CloudFormation template using the _Launch Stack_ button below to deploy our Lambda Function from the Lambda 101 Workshop
-* Add Another record to DynamoDB
-* Alter the code in GitHub and demonstrate the pipeline automation
+## How you will build it
+**Section 1: Setup GitHub for use by Cloud Formation
+* Create a personal access token.  
+* Fork the source repo to your account
+
+**Section 2: Create CloudFormation Stack**
+* Review the sections of the Cloud Formation Template
+* Launch the CloudFormation Stack
+* Verify that the stack successfully completes  
+
+**Section 3: Test deployed Lambda Function** 
+* Setup a test event for your newly created function
+* Run a test event and verify that you Lambda works
+
+**Section 4: Update index.js in github.com**
+* Manually change a value in index.js in Github
+* Verify that the CodePipeline responds to the change and successfully deploys
+* Add Another record to DynamoDB (Not yet in pdf.  Refer to the pdf in Lambda Functions 101 workshop)
+
+**Section 5: Confirm updated Lambda Function**
+* Run a test even and verify that your changes are updated in Lambda
+
 
 ## Step-by-Step Instructions
 Click [here](WorkshopForLambdaCICD.pdf) for the pdf file of step-by-step instructions
