@@ -37,3 +37,9 @@ The Lambda Funcitons 101 workshop or run this CloudFormation Template: <**Link H
 ## Coming soon
 * **Workshop:** Lambda Functions 201 (Triggering Events)
 * **Workshop:** API Gateway with Lambda Functions
+
+## References
+
+* [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+
+* [CloudFormation Lambda Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html)
